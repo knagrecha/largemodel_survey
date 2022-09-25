@@ -16,14 +16,12 @@
 \newcommand\vldbpagestyle{plain} 
 
 
-\newcommand{\red}{\textcolor{red}}
+%\newcommand{\red}{\textcolor{red}}
 \newcommand{\techreport}{our technical report~\cite{techreport}}
-\newcommand{\titlename}{Scalability and Efficiency of Graph Neural Networks}
+\newcommand{\titlename}{Systems for Large-Model Deep Learning Training}
 % eat only in tech reports
 \newcommand{\techreporteat}{}
 
-
-%<*tag>
 
 \usepackage{hyperref,array,color,balance,multirow}
 \usepackage{balance,float,url,amsfonts,alltt}
@@ -32,7 +30,6 @@
 \usepackage{etoolbox,listings}
 \lstset{basicstyle=\ttfamily\tiny,breaklines=true}
 \usepackage{bigstrut,morefloats,pbox}
-%\usepackage{amsmath}
 \usepackage{graphicx,subfigure,xspace,verbatim,comment}
 \usepackage{grffile}
 \usepackage{ifpdf,fancyvrb}
@@ -51,10 +48,9 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}[section]
 \newcommand{\eat}[1]{}
-\newcommand{\system}{Cerebro on Data Systems}
  \newcommand{\eqdef}{=\mathrel{\mathop:}}
  \definecolor{mygreen}{HTML}{3EC300}
-\newcommand{\cmark}{{\color{mygreen} \ding{51}}}%
+\newcommand\red[1]{\textbf{\color{red}#1}}
 \newcommand{\xmark}{\color{red} \ding{55}}%
 
 \DeclareMathOperator*{\gammasum}{\scalerel*{\Gamma}{\sum}}
@@ -90,17 +86,18 @@
 
 
 %\numberofauthors{8}
-\author{Yuhao Zhang}
+\author{Kabir Nagrecha}
 \affiliation{%
 \institution{University of California, San Diego}
 }
-\email{yuz870@eng.ucsd.edu}
+\email{knagrech@ucsd.edu}
 
 
 
 \begin{abstract}
-The past decade saw the rise of deep learning, which has revolutionized many domains such as computer vision and natural language processing. The data of many of these applications are represented in Euclidean space and assumed to be i.i.d. However, for many other applications such as citation networks, social network analysis, and drug discovery, data is represented as graphs to capture the complex interconnections. Traditional deep neural networks like CNN and RNN cannot be naively used in this domain; thus, there have been numerous efforts to apply existing and develop new techniques to work on graph data. These works are known as Graph Neural Networks (GNN). The complexity of graph data not only poses challenges to learning algorithms, but also causes a series of system issues such as low scalability, low runtime efficiency, and high memory footprint. This survey will give a brief overview of GNNs, including Recurrent GNN, Spectral-based and Spatial-based Convolutional GNN, and the emerging systems built to support GNN training and inference. This survey will focus on scalability, efficiency, and other system issues of GNN models and systems.
-
+Deep learning has transformed applications in a variety of domains, including computer vision, natural language processing, and tabular data analysis. The search for improved deep learning model accuracy has led practitioners to explore
+increasingly larger model architectures, with some recent Transformer architecture designs using hundreds of billions of learnable parameters. The scale of these model architectures has introduced new systems challenges such as memory 
+bottlenecks, poor runtime efficiency, and excessive computational costs of model development. Efforts to address these issues have explored techniques such as parallelization of neural architectures, spilling data across the memory hierarchy, and model compression. This survey will explore some key systems that incorporate these techniques, and evaluate their effectiveness in supporting large-model training. 
 \end{abstract}
 \maketitle
 
@@ -108,34 +105,20 @@ The past decade saw the rise of deep learning, which has revolutionized many dom
 \techreporteat{
 %%% do not modify the following VLDB block %%
 %%% VLDB block start %%%
-\begingroup\small\noindent\raggedright\textbf{PVLDB Reference Format:}\\
-Yuhao Zhang. \vldbtitle. PVLDB, \vldbvolume(\vldbissue): \vldbpages, \vldbyear.\\
-\href{https://doi.org/\vldbdoi}{doi:\vldbdoi}
-\endgroup
-\begingroup
-\renewcommand\thefootnote{}\footnote{\noindent
-$^*$Work was done when the author was at VMware, Inc.\\
-This work is licensed under the Creative Commons BY-NC-ND 4.0 International License. Visit \url{https://creativecommons.org/licenses/by-nc-nd/4.0/} to view a copy of this license. For any use beyond those covered by this license, obtain permission by emailing \href{mailto:info@vldb.org}{info@vldb.org}. Copyright is held by the owner/author(s). Publication rights licensed to the VLDB Endowment. \\
-\raggedright Proceedings of the VLDB Endowment, Vol. \vldbvolume, No. \vldbissue\ %
-ISSN 2150-8097. \\
-\href{https://doi.org/\vldbdoi}{doi:\vldbdoi} \\
-}\addtocounter{footnote}{-1}\endgroup
 %%% VLDB block end %%%
 
 %%% do not modify the following VLDB block %%
 %%% VLDB block start %%%
-\ifdefempty{\vldbavailabilityurl}{}{
 \vspace{.3cm}
-\begingroup\small\noindent\raggedright\textbf{PVLDB Artifact Availability:}\\
-The source code, data, and/or other artifacts have been made available at \url{\vldbavailabilityurl}.
-\endgroup
-}
 }
 %%% VLDB block end %%%
 
 
 \input{introduction}
-\input{overview}
+\input{background}
+\input{largemodel}
+\input{mlsys}
+%\input{overview}
 %\input{experiments}
 %\input{related_work}
 %\input{discussion}
