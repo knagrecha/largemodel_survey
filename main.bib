@@ -20,6 +20,26 @@
   copyright = {arXiv.org perpetual, non-exclusive license}
 }
 
+@book{shen2013modern,
+  title={Modern processor design: fundamentals of superscalar processors},
+  author={Shen, John Paul and Lipasti, Mikko H},
+  year={2013},
+  publisher={Waveland Press}
+}
+
+@article{BLIS1,
+   author      = {Field G. {V}an~{Z}ee and Robert A. {v}an~{d}e~{G}eijn},
+   title       = {{BLIS}: A Framework for Rapidly Instantiating {BLAS} Functionality},
+   journal     = {ACM Transactions on Mathematical Software},
+   volume      = {41},
+   number      = {3},
+   pages       = {14:1--14:33},
+   month       = {June},
+   year        = {2015},
+   issue_date  = {June 2015},
+   url         = {https://doi.acm.org/10.1145/2764454},
+}
+
 @misc{alpa2022,
   doi = {10.48550/ARXIV.2201.12023},
   
@@ -38,6 +58,43 @@
   copyright = {arXiv.org perpetual, non-exclusive license}
 }
 
+@inproceedings{memflow2020,
+author = {Band, Neil},
+title = {MemFlow: Memory-Aware Distributed Deep Learning},
+year = {2020},
+isbn = {9781450367356},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3318464.3384416},
+doi = {10.1145/3318464.3384416},
+abstract = {As the number of layers and the amount of training data increases, the trend is to train deep neural networks in parallel across devices. In such scenarios, neural network training is increasingly bottlenecked by high memory requirements posed by intermediate results, or feature maps, that are produced during the forward pass and consumed during the backward pass. We recognize that the best-performing device parallelization configurations should consider memory usage in addition to the canonical metric of computation time. Towards this we introduce MemFlow, an optimization framework for distributed deep learning that performs joint optimization over memory usage and computation time when searching for a parallelization strategy. MemFlow consists of: (i) a task graph with memory usage estimates; (ii) a memory-aware execution simulator; and (iii) a Markov Chain Monte Carlo search algorithm that considers various degrees of recomputation i.e., discarding feature maps during the forward pass and recomputing them during the backward pass. Our experiments demonstrate that under memory constraints, MemFlow can readily locate valid and superior parallelization strategies unattainable with previous frameworks.},
+booktitle = {Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data},
+pages = {2883–2885},
+numpages = {3},
+keywords = {recomputation, model parallelization, distributed machine learning, memory optimization, neural network training, deep neural networks},
+location = {Portland, OR, USA},
+series = {SIGMOD '20}
+}
+
+
+
+@misc{huggingfacefsdp2022,
+title={{Accelerate Large Model Training using PyTorch Fully Sharded Data Parallel}},
+howpublished={\url{https://huggingface.co/blog/pytorch-fsdp}},
+year={2022}
+}
+
+@misc{gnnsurvey2021,
+title={{Survey of Graph Neural Network Systems}},
+howpublished={\url{https://github.com/makemebitter/gnnsys_servey/blob/master/main_re.pdf}},
+year={2021}
+}
+
+@misc{torchfsdp2021,
+title={{Fully Sharded Data Parallel: faster AI training with fewer GPUs}},
+howpublished={\url{https://engineering.fb.com/2021/07/15/open-source/fsdp/}},
+year={2021}
+}
 
 @misc{megatron2019,
   doi = {10.48550/ARXIV.1909.08053},
@@ -449,10 +506,16 @@ author={BigScience},
 year={2022}
 }
 
+@misc{hopper2022,
+title={{NVIDIA to Share New Details on Grace CPU, Hopper GPU, NVLink Switch, Jetson Orin Module at Hot Chips}},
+howpublished={\url{https://blogs.nvidia.com/blog/2022/08/19/grace-hopper-nvswitch-hot-chips/}},
+year={2022}
+}
 
 @misc{amp2020,
 title={{Introducing native PyTorch automatic mixed precision for faster training on NVIDIA GPUs}},
-howpublished={\url{https://pytorch.org/blog/accelerating-training-on-nvidia-gpus-with-pytorch-automatic-mixed-precision/}}
+howpublished={\url{https://pytorch.org/blog/accelerating-training-on-nvidia-gpus-with-pytorch-automatic-mixed-precision/}},
+year={2020}
 }
 
 @misc{mlplatformmeetup2022,
@@ -540,6 +603,14 @@ author={Kabir Nagrecha}
   year = {2016},
   
   copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+@inproceedings{meng2017training,
+  title={Training deeper models by GPU memory optimization on TensorFlow},
+  author={Meng, Chen and Sun, Minmin and Yang, Jun and Qiu, Minghui and Gu, Yang},
+  booktitle={Proc. of ML Systems Workshop in NIPS},
+  volume={7},
+  year={2017}
 }
 
 
